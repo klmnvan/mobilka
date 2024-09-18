@@ -1,4 +1,4 @@
-package com.example.ljubivaya_43p.view
+package com.example.ljubivaya_43p.view.mainActivity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -43,7 +43,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ProductsList()
+                    //ProductsList()
                 }
 
             }
@@ -51,27 +51,28 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun ProductsList() {
-    var products by remember { mutableStateOf<List<products>>(listOf()) }
-    LaunchedEffect(Unit) {
-        withContext(Dispatchers.IO) {
-            products = supabase.from("products")
-                .select().decodeList<products>()
-        }
-    }
-    LazyColumn {
-        items(
-            products,
-            key = { products -> products.id },
-        ) { products ->
-            Text(
-                products.name,
-                modifier = Modifier.padding(8.dp),
-            )
-        }
-    }
-}
+
+//@Composable
+//fun ProductsList() {
+//    var products by remember { mutableStateOf<List<products>>(listOf()) }
+//    LaunchedEffect(Unit) {
+//        withContext(Dispatchers.IO) {
+//            products = supabase.from("products")
+//                .select().decodeList<products>()
+//        }
+//    }
+//    LazyColumn {
+//        items(
+//            products,
+//            key = { products -> products.id },
+//        ) { products ->
+//            Text(
+//                products.name,
+//                modifier = Modifier.padding(8.dp),
+//            )
+//        }
+//    }
+//}
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
