@@ -45,6 +45,7 @@ class MainViewModel():ViewModel() {
             }
         }
     }
+
     fun onSignUpEmail(emailUser: String, passwordUser: String) {
         viewModelScope.launch {
             try{
@@ -63,4 +64,5 @@ class MainViewModel():ViewModel() {
 
         }
     }
+
 }
